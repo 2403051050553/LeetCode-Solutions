@@ -9,7 +9,7 @@ A small, tested collection of Java implementations for common data-structure and
 
 | Class | Methods | Complexity |
 | --- | --- | --- |
-| `ArrayAlgorithms` | `twoSum`, `maxSubarraySum` | O(n) time |
+| `ArrayAlgorithms` | `twoSum`, `maxSubarraySum`, `mergeIntervals` | O(n) for `twoSum`/`maxSubarraySum`; O(n log n) for interval sorting |
 | `SlidingWindowAlgorithms` | `maximums` using a monotonic deque | O(n) time, O(k) space |
 | `StringAlgorithms` | `isPalindrome`, `firstUniqueCharacterIndex` | O(n) time |
 | `SearchAlgorithms` | `lowerBound` on sorted input | O(log n) time |

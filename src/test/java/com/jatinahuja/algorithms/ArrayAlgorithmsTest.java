@@ -26,4 +26,34 @@ class ArrayAlgorithmsTest {
     void maximumSubarrayRejectsEmptyInput() {
         assertThrows(IllegalArgumentException.class, () -> ArrayAlgorithms.maxSubarraySum(new int[0]));
     }
+
+    @Test
+    void mergeIntervalsSortsAndMergesOverlappingAndAdjacentRanges() {
+        int[][] intervals = {{8, 10}, {1, 3}, {2, 6}, {10, 12}};
+        assertArrayEquals(
+                new int[][] {{1, 6}, {8, 12}},
+                ArrayAlgorithms.mergeIntervals(intervals));
+        assertArrayEquals(new int[][] {{8, 10}, {1, 3}, {2, 6}, {10, 12}}, intervals);
+    }
+
+    @Test
+    void mergeIntervalsKeepsDisjointRangesAndSupportsEmptyInput() {
+        assertArrayEquals(
+                new int[][] {{-5, -2}, {0, 1}, {4, 7}},
+                ArrayAlgorithms.mergeIntervals(new int[][] {{4, 7}, {-5, -2}, {0, 1}}));
+        assertArrayEquals(new int[0][2], ArrayAlgorithms.mergeIntervals(new int[0][2]));
+    }
+
+    @Test
+    void mergeIntervalsRejectsMalformedRanges() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> ArrayAlgorithms.mergeIntervals(new int[][] {{3, 1}}));
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> ArrayAlgorithms.mergeIntervals(new int[][] {{1}}));
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> ArrayAlgorithms.mergeIntervals(new int[][] {null}));
+    }
 }

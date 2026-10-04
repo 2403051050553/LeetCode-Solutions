@@ -18,7 +18,7 @@ class LruCacheTest {
         assertEquals("one", cache.get(1).orElseThrow());
         assertEquals("three", cache.get(3).orElseThrow());
         assertEquals(2, cache.size());
-        assertEquals("Entry 2 should have been evicted", Optional.empty(), cache.get(2));
+        assertEquals(Optional.empty(), cache.get(2), "Entry 2 should have been evicted");
     }
 
     @Test

@@ -14,6 +14,17 @@ A small, tested collection of Java implementations for common data-structure and
 | `SlidingWindowAlgorithms` | `maximums` using a monotonic deque | O(n) time, O(k) space |
 | `StringAlgorithms` | `isPalindrome`, `firstUniqueCharacterIndex` | O(n) time |
 | `SearchAlgorithms` | `lowerBound` on sorted input | O(log n) time |
+| `ReverseNodesInKGroup` | Reverses linked-list nodes in complete groups | O(n) time, O(1) extra space |
+
+## Public LeetCode solution
+
+| Problem | Java implementation | Source |
+| --- | --- | --- |
+| [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) | [`ReverseNodesInKGroup`](src/main/java/com/jatinahuja/leetcode/ReverseNodesInKGroup.java) | [Public solution post](https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/7391010/write-these-program-of-the-java-and-thes-yxp3/) |
+
+This entry mirrors the Java code in the linked public solution post. It is the
+publicly verifiable LeetCode solution found for this profile; it is not a complete
+export of the profile's accepted submissions.
 
 `LruCache` rejects null keys and values, returns cache misses as `Optional.empty()`,
 and is intended for single-threaded use.

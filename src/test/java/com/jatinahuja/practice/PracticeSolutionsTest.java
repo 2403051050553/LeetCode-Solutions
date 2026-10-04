@@ -39,6 +39,43 @@ class PracticeSolutionsTest {
     }
 
     @Test
+    void additionalArrayPracticeCoversSumAndPrefixPatterns() {
+        assertEquals(
+                Set.of(List.of(-1, -1, 2), List.of(-1, 0, 1)),
+                new HashSet<>(ArrayPractice.threeSum(new int[] {-1, 0, 1, 2, -1, -4})));
+        assertEquals(4, ArrayPractice.longestConsecutive(new int[] {100, 4, 200, 1, 3, 2}));
+        assertEquals(2, ArrayPractice.longestConsecutive(
+                new int[] {Integer.MIN_VALUE, Integer.MIN_VALUE + 1, 0, Integer.MAX_VALUE}));
+        assertEquals(6, ArrayPractice.trap(new int[] {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+        assertEquals(2, ArrayPractice.subarraySum(new int[] {1, 1, 1}, 2));
+        assertEquals(3, ArrayPractice.subarraySum(new int[] {1, -1, 0}, 0));
+    }
+
+    @Test
+    void matrixPracticeRotatesReadsAndZeroesMatrices() {
+        int[][] rotated = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        MatrixPractice.rotateClockwise(rotated);
+        assertArrayEquals(new int[][] {{7, 4, 1}, {8, 5, 2}, {9, 6, 3}}, rotated);
+        assertEquals(
+                List.of(1, 2, 3, 6, 9, 8, 7, 4, 5),
+                MatrixPractice.spiralOrder(new int[][] {
+                    {1, 2, 3},
+                    {4, 5, 6},
+                    {7, 8, 9}
+                }));
+        assertEquals(
+                List.of(1, 2, 3),
+                MatrixPractice.spiralOrder(new int[][] {{1}, {2}, {3}}));
+        assertEquals(List.of(), MatrixPractice.spiralOrder(new int[0][0]));
+        int[][] zeroed = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+        MatrixPractice.setZeroes(zeroed);
+        assertArrayEquals(new int[][] {{1, 0, 1}, {0, 0, 0}, {1, 0, 1}}, zeroed);
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> MatrixPractice.rotateClockwise(new int[][] {{1, 2, 3}, {4, 5, 6}}));
+    }
+
+    @Test
     void stringPracticeCoversCommonStringProblems() {
         assertTrue(StringPractice.isAnagram("listen", "silent"));
         assertFalse(StringPractice.isAnagram("aab", "abb"));

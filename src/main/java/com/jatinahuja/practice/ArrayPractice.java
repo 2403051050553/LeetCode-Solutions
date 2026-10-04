@@ -145,6 +145,89 @@ public final class ArrayPractice {
         return best;
     }
 
+    public static java.util.List<java.util.List<Integer>> threeSum(int[] numbers) {
+        int[] sorted = numbers.clone();
+        Arrays.sort(sorted);
+        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+        for (int i = 0; i < sorted.length - 2; i++) {
+            if (i > 0 && sorted[i] == sorted[i - 1]) {
+                continue;
+            }
+            int left = i + 1;
+            int right = sorted.length - 1;
+            while (left < right) {
+                long sum = (long) sorted[i] + sorted[left] + sorted[right];
+                if (sum == 0) {
+                    result.add(java.util.List.of(sorted[i], sorted[left], sorted[right]));
+                    int leftValue = sorted[left];
+                    int rightValue = sorted[right];
+                    while (left < right && sorted[left] == leftValue) {
+                        left++;
+                    }
+                    while (left < right && sorted[right] == rightValue) {
+                        right--;
+                    }
+                } else if (sum < 0) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+        return result;
+    }
+
+    public static int longestConsecutive(int[] numbers) {
+        Set<Integer> values = new HashSet<>();
+        for (int number : numbers) {
+            values.add(number);
+        }
+        int longest = 0;
+        for (int number : values) {
+            if (number == Integer.MIN_VALUE || !values.contains(number - 1)) {
+                int length = 1;
+                int next = number;
+                while (next != Integer.MAX_VALUE && values.contains(next + 1)) {
+                    next++;
+                    length++;
+                }
+                longest = Math.max(longest, length);
+            }
+        }
+        return longest;
+    }
+
+    public static int trap(int[] heights) {
+        int left = 0;
+        int right = heights.length - 1;
+        int leftMaximum = 0;
+        int rightMaximum = 0;
+        int water = 0;
+        while (left < right) {
+            if (heights[left] <= heights[right]) {
+                leftMaximum = Math.max(leftMaximum, heights[left]);
+                water += leftMaximum - heights[left++];
+            } else {
+                rightMaximum = Math.max(rightMaximum, heights[right]);
+                water += rightMaximum - heights[right--];
+            }
+        }
+        return water;
+    }
+
+    public static int subarraySum(int[] numbers, int target) {
+        Map<Integer, Integer> prefixCounts = new HashMap<>();
+        prefixCounts.put(0, 1);
+        int prefix = 0;
+        int count = 0;
+        for (int number : numbers) {
+            prefix += number;
+            count += prefixCounts.getOrDefault(prefix - target, 0);
+            prefixCounts.merge(prefix, 1, Integer::sum);
+        }
+        return count;
+    }
+
     private static void reverse(int[] numbers, int left, int right) {
         while (left < right) {
             int value = numbers[left];

@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,7 +45,7 @@ class PracticeSolutionsTest {
         List<Set<String>> groups = StringPractice.groupAnagrams(
                         new String[] {"eat", "tea", "tan", "ate", "nat", "bat"})
                 .stream()
-                .map(HashSet::new)
+        .map(Set::copyOf)
                 .toList();
         assertEquals(
                 Set.of(Set.of("eat", "tea", "ate"), Set.of("tan", "nat"), Set.of("bat")),

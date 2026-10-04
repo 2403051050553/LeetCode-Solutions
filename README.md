@@ -1,35 +1,45 @@
-# LeetCode Solutions
+# Java Algorithm Practice
 
-A Java workspace for practicing data structures and algorithms.
+[![Java CI](https://github.com/2403051050553/LeetCode-Solutions/actions/workflows/ci.yml/badge.svg)](https://github.com/2403051050553/LeetCode-Solutions/actions/workflows/ci.yml)
+[![Java 17](https://img.shields.io/badge/Java-17-orange?logo=openjdk)](https://openjdk.org/projects/jdk/17/)
 
-## Current contents
+A small, tested collection of Java implementations for common data-structure and algorithm patterns. Each method documents its assumptions through its API and tests; this repository does not claim a particular LeetCode problem count.
 
-The repository currently contains a single, empty `leetcode.java` placeholder. It does not yet contain runnable solutions, problem categories, or verified problem statistics.
+## Implemented patterns
 
-## Add a solution
+| Class | Methods | Complexity |
+| --- | --- | --- |
+| `ArrayAlgorithms` | `twoSum`, `maxSubarraySum` | O(n) time |
+| `StringAlgorithms` | `isPalindrome`, `firstUniqueCharacterIndex` | O(n) time |
+| `SearchAlgorithms` | `lowerBound` on sorted input | O(log n) time |
 
-When adding solutions, use descriptive filenames and include the problem link, approach, and time/space complexity. Keep each solution independently understandable and compilable where practical.
+## Requirements
 
-Example format:
+- JDK 17 or newer
+- Maven 3.8+
 
-```java
-// Problem: <name and link>
-// Approach: <brief explanation>
-// Time: O(...)
-// Space: O(...)
-```
-
-## Run locally
-
-After adding a Java source file, compile and run it with a JDK:
+## Run tests
 
 ```bash
-javac Solution.java
-java Solution
+mvn test
 ```
 
-Replace `Solution.java` with the source file you want to run. A `main` method is needed for direct execution.
+Compile the project without running tests:
 
-## Profile
+```bash
+mvn package
+```
 
-[LeetCode profile](https://leetcode.com/u/2403051050553/)
+GitHub Actions runs the unit tests on pushes and pull requests.
+
+## Layout
+
+```text
+src/
+├── main/java/com/jatinahuja/algorithms/  # Implementations
+└── test/java/com/jatinahuja/algorithms/  # JUnit 5 tests
+```
+
+## LeetCode profile
+
+[View profile](https://leetcode.com/u/2403051050553/)

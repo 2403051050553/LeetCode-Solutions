@@ -10,9 +10,13 @@ A small, tested collection of Java implementations for common data-structure and
 | Class | Methods | Complexity |
 | --- | --- | --- |
 | `ArrayAlgorithms` | `twoSum`, `maxSubarraySum`, `mergeIntervals` | O(n) for `twoSum`/`maxSubarraySum`; O(n log n) for interval sorting |
+| `LruCache` | Generic bounded least-recently-used cache | O(1) average `get`/`put` |
 | `SlidingWindowAlgorithms` | `maximums` using a monotonic deque | O(n) time, O(k) space |
 | `StringAlgorithms` | `isPalindrome`, `firstUniqueCharacterIndex` | O(n) time |
 | `SearchAlgorithms` | `lowerBound` on sorted input | O(log n) time |
+
+`LruCache` rejects null keys and values, returns cache misses as `Optional.empty()`,
+and is intended for single-threaded use.
 
 ## Requirements
 

@@ -35,7 +35,9 @@ Compile the project without running tests:
 mvn package
 ```
 
-GitHub Actions runs the unit tests on pushes and pull requests.
+GitHub Actions runs the unit tests on pushes and pull requests. The sliding-window
+implementation is also checked against a brute-force reference over deterministic
+random inputs, so the test is repeatable across runs.
 
 ## Layout
 

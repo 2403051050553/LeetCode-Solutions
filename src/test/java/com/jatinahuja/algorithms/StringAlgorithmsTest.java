@@ -19,7 +19,7 @@ class StringAlgorithmsTest {
 
     @Test
     void findsFirstUniqueCharacter() {
-        assertEquals(2, StringAlgorithms.firstUniqueCharacterIndex("aabbc"));
+        assertEquals(4, StringAlgorithms.firstUniqueCharacterIndex("aabbc"));
     }
 
     @Test
